@@ -36,17 +36,14 @@ public class RealCustomer implements Customer {
 
     @Override
     public void transfer(long amount, Account account, Customer target) {
-        //Giver ingen mening. Spørg Anders!!!!
         account.transfer(amount, target.getAccounts().get(0));
     }
 
+    @Override
     public List<Movement> getMovementsFromAccount(String accountNumber) {
-        List<Movement> movementList = null;
-        for (Account a:accounts) {
-            if(a.getNumber().equals(accountNumber)) {
-                movementList = a.getMovements();
-            }
+        for (Account a : accounts) {
+            if (a.getNumber().equals(accountNumber)) return a.getMovements();
         }
-        return movementList;
+        return null;
     }
 }

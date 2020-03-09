@@ -1,19 +1,13 @@
 package dk.cphbusiness.miscellaneous;
 
-import dk.cphbusiness.banking.Account;
+import dk.cphbusiness.banking.RealAccount;
 import dk.cphbusiness.banking.Bank;
 import dk.cphbusiness.banking.Customer;
-import dk.cphbusiness.banking.Movement;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class BankTool {
   public void readFromFile(Bank bank, String filename) throws IOException {
@@ -22,7 +16,7 @@ public class BankTool {
       if (line.startsWith("A:")) {
         String[] parts = line.split(":");
         if (parts.length != 3) throw new RuntimeException();
-        Account account = new Account(bank, bank.getCustomer(parts[2]), parts[1]);
+        RealAccount account = new RealAccount(bank, bank.getCustomer(parts[2]), parts[1]);
         bank.registerAccount(account);
         }
       else if (line.startsWith("C:")){

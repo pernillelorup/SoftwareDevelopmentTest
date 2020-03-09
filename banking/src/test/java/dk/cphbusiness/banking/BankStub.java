@@ -3,14 +3,14 @@ package dk.cphbusiness.banking;
 import java.util.List;
 
 public class BankStub implements Bank {
-  private Account account;
+  private RealAccount account;
 
-  void setAccount(Account account) {
+  void setAccount(RealAccount account) {
     this.account = account;
     }
 
   @Override
-  public Account getAccount(String number) {
+  public RealAccount getAccount(String number) {
     return account;
     }
 

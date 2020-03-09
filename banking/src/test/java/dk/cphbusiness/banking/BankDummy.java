@@ -5,7 +5,7 @@ import java.util.List;
 public class BankDummy implements Bank {
 
   @Override
-  public Account getAccount(String number) {
+  public RealAccount getAccount(String number) {
     throw new UnsupportedOperationException();
     }
 
